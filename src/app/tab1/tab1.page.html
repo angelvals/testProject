@@ -12,6 +12,10 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  
+  <ion-list lines="full" *ngIf="entries$ | async as entries">
+    <ion-item *ngFor="let entrie of entries">
+      <ion-label class="ion-text-wrap">{{ entrie.API }} : {{ entrie.Description }} link: <a href="{{ entrie.Link }}" target="_blank">Link</a></ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
